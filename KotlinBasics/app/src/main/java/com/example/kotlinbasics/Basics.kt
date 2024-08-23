@@ -1,5 +1,12 @@
 package com.example.kotlinbasics
 
 fun main() {
-    println("Hello World!")
+
+    var pi = 3.14f
+
+    println(pi)
+
+    pi = 3.1415926535f
+    println(pi)
+
 }
