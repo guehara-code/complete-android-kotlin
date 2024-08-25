@@ -3,7 +3,8 @@ package com.example.kotlinbasics
 fun main() {
 
     // call function
-    makeCoffee()
+    makeCoffee(1)
+    makeCoffee(2)
 
 
 //    var pi = 3.14f
@@ -15,11 +16,7 @@ fun main() {
 
 }
 
-fun makeCoffee() {
-    println("Buy beans")
-    println("Grind beans")
-    println("Heat water to 90C")
-    println("Add water")
-    println("Push hot water through the grinded beans")
-
+fun makeCoffee(sugarCount: Int) {
+    println("Coffee with $sugarCount spoons of sugar")
 }
+
