@@ -2,19 +2,28 @@ package com.example.kotlinbasics
 
 fun main() {
 
+    println("Enter first number")
+    val num1 = readln().toInt()
+    println("Enter second number")
+    val num2 = readln().toInt()
+
+    var myResult = add(num1, num2)
+    println("The result is $myResult")
+}
+
+fun add(num1: Int, num2: Int): Int {
+    val result = num1 + num2
+    return result
+}
+
+fun askCoffeeDetails() {
+    println("Who is this coffee for?")
+    val name = readln()
+    println("How many spoons of sugar do you want?")
+    val sugarCount = readln()
+    val sugarCountInt = sugarCount.toInt()
     // call function
-    makeCoffee(1, "Jimmy")
-    makeCoffee(2, "Bob")
-    makeCoffee(30, "Sarah")
-    makeCoffee(0, "Sarah")
-
-
-//    var pi = 3.14f
-//
-//    println(pi)
-//
-//    pi = 3.1415926535f
-//    println(pi)
+    makeCoffee(sugarCountInt, name)
 
 }
 
