@@ -6,7 +6,11 @@ fun main() {
     daisy.bark()
 
     println("${daisy.name} is a ${daisy.breed} and is ${daisy.age} years old")
+    println("A year is passed")
+    daisy.age = 2
 
+
+    println("${daisy.name} is a ${daisy.breed} and is ${daisy.age} years old")
 }
 
 fun divide(num1: Double, num2: Double): Double {
