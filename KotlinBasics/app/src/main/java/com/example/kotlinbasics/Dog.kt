@@ -1,12 +1,12 @@
 package com.example.kotlinbasics
 
-class Dog {
+class Dog (val name: String, val breed: String, val age: Int) {
 
     init {
         bark()
     }
 
     fun bark() {
-        println("Woof Woof")
+        println("${this.name} says Woof Woof")
     }
 }
