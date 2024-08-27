@@ -2,13 +2,14 @@ package com.example.kotlinbasics
 
 fun main() {
 
-    println("Enter first number")
-    val num1 = readln().toInt()
-    println("Enter second number")
-    val num2 = readln().toInt()
+   var daisy = Dog()
+    daisy.bark()
 
-    var myResult = add(num1, num2)
-    println("The result is $myResult")
+}
+
+fun divide(num1: Double, num2: Double): Double {
+    val result = num1/num2
+    return result
 }
 
 fun add(num1: Int, num2: Int): Int {
