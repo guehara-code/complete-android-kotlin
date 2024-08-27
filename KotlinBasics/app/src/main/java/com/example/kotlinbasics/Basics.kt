@@ -2,27 +2,38 @@ package com.example.kotlinbasics
 
 fun main() {
 
-   var daisy = Dog("Daisy", "Dwarf Poodle", 1)
-    daisy.bark()
+    // Immutable list
+//    val shoppingList = listOf("Processor", "RAM", "Graphics Card", "SSD")
 
-    println("${daisy.name} is a ${daisy.breed} and is ${daisy.age} years old")
-    println("A year is passed")
-    daisy.age = 2
+    // Mutable list
+    val shoppingList = mutableListOf("Processor", "RAM", "Graphics Card RTX 3060", "SSD")
 
+    shoppingList.add("Cooling System")
+    shoppingList.remove("Graphics Card RTX 3060")
+    shoppingList.add("Graphics Card RTX 4090")
 
-    println("${daisy.name} is a ${daisy.breed} and is ${daisy.age} years old")
+    println(shoppingList)
+
+    shoppingList.removeAt(2)
+    println(shoppingList)
+    shoppingList.removeAt(1)
+    println(shoppingList)
+
+    shoppingList.add(2, "RAM")
+    println(shoppingList)
+
 }
 
-fun divide(num1: Double, num2: Double): Double {
-    val result = num1/num2
-    return result
-}
+/*
+data class CoffeeDetails(
+    val sugarCount: Int,
+    val name: String,
+    val size: String,
+    val creamAmount: Int
+)
+*/
 
-fun add(num1: Int, num2: Int): Int {
-    val result = num1 + num2
-    return result
-}
-
+/*
 fun askCoffeeDetails() {
     println("Who is this coffee for?")
     val name = readln()
@@ -30,17 +41,18 @@ fun askCoffeeDetails() {
     val sugarCount = readln()
     val sugarCountInt = sugarCount.toInt()
     // call function
-    makeCoffee(sugarCountInt, name)
+//    makeCoffee(sugarCountInt, name)
 
 }
 
-fun makeCoffee(sugarCount: Int, name: String) {
-    if (sugarCount == 1) {
-        println("Coffee with $sugarCount spoon of sugar for $name")
-    } else if (sugarCount == 0) {
-        println("Coffee with no sugar for $name")
+fun makeCoffee(coffeeDetails: CoffeeDetails) {
+    if (coffeeDetails.sugarCount == 1) {
+        println("Coffee with ${coffeeDetails.sugarCount} spoon of sugar for ${coffeeDetails.name}")
+    } else if (coffeeDetails.sugarCount == 0) {
+        println("Coffee with no sugar for ${coffeeDetails.name}")
     } else {
-        println("Coffee with $sugarCount spoons of sugar for $name")
+        println("Coffee with ${coffeeDetails.sugarCount} spoons of sugar for ${coffeeDetails.name}")
     }
 }
 
+*/
