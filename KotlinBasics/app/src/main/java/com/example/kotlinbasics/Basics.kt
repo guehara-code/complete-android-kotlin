@@ -35,6 +35,16 @@ fun main() {
         println("No RAM in the list")
     }
 
+    for (item in shoppingList) {
+        println(item)
+        if (item == "RAM") {
+            shoppingList.removeLast()
+            break
+        }
+    }
+
+    println(shoppingList)
+
 }
 
 /*
