@@ -35,12 +35,10 @@ fun main() {
         println("No RAM in the list")
     }
 
-    for (item in shoppingList) {
-        println(item)
-        if (item == "RAM") {
-            shoppingList.removeLast()
-            break
-        }
+    println(shoppingList.size)
+    for (index in 0 until shoppingList.size) {
+        println("item ${shoppingList[index]} is at index $index")
+
     }
 
     println(shoppingList)
@@ -50,7 +48,7 @@ fun main() {
 /*
 data class CoffeeDetails(
     val sugarCount: Int,
-    val name: String,
+    val name: String,Z
     val size: String,
     val creamAmount: Int
 )
