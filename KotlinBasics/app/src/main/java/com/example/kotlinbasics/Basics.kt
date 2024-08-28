@@ -20,7 +20,15 @@ fun main() {
     println(shoppingList)
 
     shoppingList.add(2, "RAM")
+    println(shoppingList[3])
+
+    shoppingList[3] = "Graphics Card RX 7800XT"
     println(shoppingList)
+
+    shoppingList.set(1, "Water Cooling")
+    println(shoppingList)
+
+    
 
 }
 
