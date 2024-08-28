@@ -28,7 +28,12 @@ fun main() {
     shoppingList.set(1, "Water Cooling")
     println(shoppingList)
 
-    
+    val hasRam = shoppingList.contains("RAM")
+    if(hasRam) {
+        println("Has RAM in the list")
+    } else {
+        println("No RAM in the list")
+    }
 
 }
 
