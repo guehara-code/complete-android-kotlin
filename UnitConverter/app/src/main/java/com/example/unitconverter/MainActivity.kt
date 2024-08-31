@@ -26,6 +26,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -59,6 +63,15 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun UnitConverter() {
+
+    var inputValue by remember { mutableStateOf("") }
+    var outputValue by remember { mutableStateOf("") }
+    var inputUnit by remember { mutableStateOf("Centimeters") }
+    var outputUnit by remember { mutableStateOf("Meters") }
+    var iExpanded by remember { mutableStateOf(false) }
+    var oExpanded by remember { mutableStateOf(false) }
+    var conversionFactor = remember { mutableStateOf(0.01) }
+
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -66,30 +79,35 @@ fun UnitConverter() {
     ) {
         Text("Unit Converter")
         Spacer(modifier = Modifier.height(16.dp))
-        OutlinedTextField(value = "", onValueChange = {} )
+        OutlinedTextField(value = inputValue, onValueChange = {
+            inputValue = it
+        },
+            label = { Text("Enter Value") })
         Spacer(modifier = Modifier.height(16.dp))
         Row {
             Box() {
                 Button(onClick = {}) {
                     Text("Select")
-                    Icon(Icons.Default.ArrowDropDown,
-                        contentDescription = "Arrow Down")
+                    Icon(
+                        Icons.Default.ArrowDropDown,
+                        contentDescription = "Arrow Down"
+                    )
                 }
                 DropdownMenu(expanded = false, onDismissRequest = {}) {
                     DropdownMenuItem(
-                        text = { Text("Centimeters")},
+                        text = { Text("Centimeters") },
                         onClick = {}
                     )
                     DropdownMenuItem(
-                        text = { Text("Meters")},
+                        text = { Text("Meters") },
                         onClick = {}
                     )
                     DropdownMenuItem(
-                        text = { Text("Feet")},
+                        text = { Text("Feet") },
                         onClick = {}
                     )
                     DropdownMenuItem(
-                        text = { Text("Milimeters")},
+                        text = { Text("Milimeters") },
                         onClick = {}
                     )
                 }
@@ -98,24 +116,26 @@ fun UnitConverter() {
             Box {
                 Button(onClick = {}) {
                     Text("Select")
-                    Icon(Icons.Default.ArrowDropDown,
-                        contentDescription = "Arrow Down")
+                    Icon(
+                        Icons.Default.ArrowDropDown,
+                        contentDescription = "Arrow Down"
+                    )
                 }
                 DropdownMenu(expanded = false, onDismissRequest = {}) {
                     DropdownMenuItem(
-                        text = { Text("Centimeters")},
+                        text = { Text("Centimeters") },
                         onClick = {}
                     )
                     DropdownMenuItem(
-                        text = { Text("Meters")},
+                        text = { Text("Meters") },
                         onClick = {}
                     )
                     DropdownMenuItem(
-                        text = { Text("Feet")},
+                        text = { Text("Feet") },
                         onClick = {}
                     )
                     DropdownMenuItem(
-                        text = { Text("Milimeters")},
+                        text = { Text("Milimeters") },
                         onClick = {}
                     )
                 }
@@ -125,8 +145,6 @@ fun UnitConverter() {
 
     }
 }
-
-
 
 
 @Preview(showBackground = true)
