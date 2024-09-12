@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MyApp()
+                    MyApp(viewModel)
                 }
             }
         }
@@ -61,11 +61,19 @@ fun LocationDisplay (
     context: Context
 ) {
 
+    val location = viewModel.location.value
+
+    val address = location?.let {
+        locationUtils.reverseGeocodeLocation(location)
+    }
+
     val requestPermissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestMultiplePermissions(),
         onResult = { permissions ->
             if(permissions[Manifest.permission.ACCESS_COARSE_LOCATION] == true
                 && permissions[Manifest.permission.ACCESS_FINE_LOCATION] == true) {
+
+                locationUtils.requestLocationUpdates(viewModel = viewModel)
 
             } else {
                 val rationaleRequired = ActivityCompat.shouldShowRequestPermissionRationale(
@@ -92,11 +100,16 @@ fun LocationDisplay (
     Column(modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center) {
-        Text(text = "Location not available")
+        if(location != null) {
+            Text("Address: ${location.latitude} ${location.longitude} \n $address")
+        } else {
+            Text(text = "Location not available")
+        }
+
 
         Button(onClick = {
             if(locationUtils.hasLocationPermission(context)) {
-
+                locationUtils.requestLocationUpdates(viewModel)
             } else {
                 requestPermissionLauncher.launch(
                     arrayOf(
