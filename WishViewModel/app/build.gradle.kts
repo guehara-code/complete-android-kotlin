@@ -43,7 +43,7 @@ android {
 dependencies {
 
     val nav_version = "2.7.5"
-    val compose_version = "1.6.0.alpha08"
+    val compose_version = "1.6.0-alpha08"
     val room = "2.6.0"
 
     // Room
@@ -53,7 +53,7 @@ dependencies {
 
     implementation("androidx.navigation:navigation-compose:$nav_version")
     implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.compose.ui:ui.$compose_version")
+    implementation("androidx.compose.ui:ui:$compose_version")
     implementation("androidx.compose.material:material:$compose_version")
     implementation("androidx.compose.ui:ui-tooling-preview:$compose_version")
 
