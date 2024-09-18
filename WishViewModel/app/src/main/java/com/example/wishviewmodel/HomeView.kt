@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
@@ -23,7 +24,9 @@ import androidx.compose.ui.modifier.modifierLocalMapOf
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.wishviewmodel.data.DummyWish
 import com.example.wishviewmodel.data.Wish
+
 
 @Composable
 fun HomeView() {
@@ -52,7 +55,9 @@ fun HomeView() {
                 .fillMaxSize()
                 .padding(it)
         ) {
-
+            items(DummyWish.wishList) {
+                wish -> WishItem(wish = wish, onClick = {})
+            }
         }
     }
 }
