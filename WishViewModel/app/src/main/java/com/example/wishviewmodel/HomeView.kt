@@ -24,12 +24,16 @@ import androidx.compose.ui.modifier.modifierLocalMapOf
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.wishviewmodel.data.DummyWish
 import com.example.wishviewmodel.data.Wish
 
 
 @Composable
-fun HomeView() {
+fun HomeView(
+    navController: NavController,
+    viewModel: WishViewModel
+) {
     val context = LocalContext.current
     Scaffold(
         topBar = {
@@ -44,6 +48,7 @@ fun HomeView() {
                 backgroundColor = Color.Black,
                 onClick = {
                     Toast.makeText(context, "FAButton Clicked", Toast.LENGTH_LONG).show()
+                    navController.navigate(Screen.AddScreen.route)
                 }) {
                 Icon(imageVector = Icons.Default.Add, contentDescription = null)
             }
